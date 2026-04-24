@@ -13,15 +13,6 @@ export const metadata = {
 
 /* -------------------- Data -------------------- */
 
-const methodology: { num: string; name: string; sub: string }[] = [
-  { num: "01", name: "Engage", sub: "Stakeholder insight. Frontline understanding." },
-  { num: "02", name: "Reframe", sub: "Define the problem and the opportunity." },
-  { num: "03", name: "Align", sub: "Align support and stakeholder buy-in." },
-  { num: "04", name: "Build", sub: "Develop and test practical solutions." },
-  { num: "05", name: "Deliver", sub: "Implement with structure and control." },
-  { num: "06", name: "Optimise", sub: "Embed, measure, refine. QA and QC." },
-];
-
 type CaseStudy = {
   num: string;
   tag: string;
@@ -43,7 +34,7 @@ const cases: CaseStudy[] = [
     tag: "Growth",
     title: "Strategic Growth & Data Transformation of Infrastructure Operations",
     client: "Iarnród Éireann · Irish Rail",
-    image: "/case_studies/case1.png",
+    image: "/case_studies/case1.webp",
     imageAlt: "Rail engineer using augmented reality on the network",
     headlineStat: "€50M → €150M",
     statLabel: "Contract value transformation",
@@ -125,7 +116,7 @@ const cases: CaseStudy[] = [
         points: [
           "Replaced static maintenance with a risk-based, dynamic system.",
           "On-the-move monitoring with continuous temperature and visual checks.",
-          "Short 'pit stop' interventions of 5–10 minutes for critical checks.",
+          "Short 'pit stop' interventions of 5 to 10 minutes for critical checks.",
           "Planned 20-minute structured inspections where required.",
         ],
       },
@@ -164,7 +155,7 @@ const cases: CaseStudy[] = [
     tag: "Digital Transformation",
     title: "Digital Fit-for-Duty & Control System",
     client: "Distributed fleet operations",
-    image: "/section4/4.webp",
+    image: "/case_studies/case3.webp",
     imageAlt: "Biometric Digital Safety & Performance Station in a depot",
     headlineStat: "100%",
     statLabel: "Safety engagement · industry award",
@@ -276,7 +267,7 @@ const cases: CaseStudy[] = [
     client: "Heavy-haul railway, Abu Dhabi",
     image: "/case_studies/case5.webp",
     imageAlt: "Desert sand monitoring station in Abu Dhabi",
-    headlineStat: "5–10 days",
+    headlineStat: "5 to 10 days",
     statLabel: "Predictive visibility of wind and sand events",
     situation: [
       "During early operations of a heavy-haul railway in Abu Dhabi, recurring sandstorms posed a significant threat to operational reliability and safety.",
@@ -296,7 +287,7 @@ const cases: CaseStudy[] = [
         title: "Predictive Risk Modelling",
         points: [
           "Developed a forward-looking risk model combining local weather station data with external forecasting sources.",
-          "Enabled 5–10 day visibility of wind conditions and identification of high-risk areas before impact.",
+          "Enabled 5 to 10 day visibility of wind conditions and identification of high-risk areas before impact.",
           "Introduced a proactive alert system to trigger early intervention.",
         ],
       },
@@ -409,19 +400,21 @@ function ProfileSection() {
       <div className="container-core">
         <div className="max-w-[82rem] mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <Reveal className="lg:col-span-5">
-            <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] rounded-3xl overflow-hidden bg-ink-100">
-              <Image
-                src="/case_studies/Darryl_Gwilliam.webp"
-                alt="Darryl Gwilliam, Operational Performance & Transformation Leader"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 80vw, 40vw"
-                priority
-              />
+            <div className="relative w-full max-w-md mx-auto lg:mx-0">
               <div
                 aria-hidden
-                className="absolute -bottom-6 -right-6 h-32 w-32 rounded-full bg-accent/15 blur-2xl -z-10"
+                className="pointer-events-none absolute -bottom-6 -right-6 h-40 w-40 rounded-full bg-accent/20 blur-3xl"
               />
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-ink-100">
+                <Image
+                  src="/case_studies/Darryl_Gwilliam.webp"
+                  alt="Darryl Gwilliam, Operational Performance & Transformation Leader"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 80vw, 40vw"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </Reveal>
 
@@ -473,9 +466,18 @@ function ProfileSection() {
 function MethodologySection() {
   return (
     <section className="bg-ink-50 py-20 lg:py-28 relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #0A0A0B 1px, transparent 1px), linear-gradient(to bottom, #0A0A0B 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
       <div className="container-core relative">
         <div className="max-w-[82rem] mx-auto">
-          <Reveal className="max-w-3xl mb-12 lg:mb-16">
+          <Reveal className="max-w-3xl mb-10 lg:mb-14">
             <span className="eyebrow mb-5">Methodology</span>
             <h2 className="font-sans font-black text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em] text-ink-900">
               A structured, engagement-led approach to{" "}
@@ -487,39 +489,32 @@ function MethodologySection() {
             </p>
           </Reveal>
 
-          {/* Horizontal step flow */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-px bg-ink-200 rounded-3xl overflow-hidden border border-ink-200">
-            {methodology.map((step, i) => (
-              <Reveal
-                key={step.num}
-                delay={((i % 6) + 1) as 1 | 2 | 3 | 4 | 5}
-                className="group relative bg-white p-6 lg:p-7 hover:bg-ink-900 transition-colors duration-500 flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-[11px] font-mono text-ink-400 group-hover:text-white/50 tracking-wider transition-colors">
-                    {step.num}
-                  </span>
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent/0 group-hover:bg-accent text-ink-300 group-hover:text-white transition-all">
-                    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden>
-                      <path
-                        d="M3 8h10M9 4l4 4-4 4"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </div>
-                <h3 className="font-sans font-black text-2xl lg:text-[1.5rem] tracking-tight text-ink-900 group-hover:text-white transition-colors">
-                  {step.name}
-                </h3>
-                <p className="mt-2 text-[13px] text-ink-600 group-hover:text-ink-300 leading-relaxed transition-colors">
-                  {step.sub}
-                </p>
-              </Reveal>
-            ))}
-          </div>
+          {/* Six-step framework visual */}
+          <Reveal delay={1}>
+            <div className="relative rounded-3xl border border-ink-200 bg-white p-6 sm:p-10 lg:p-14 shadow-[0_1px_0_rgba(10,10,11,0.04),0_24px_48px_-24px_rgba(10,10,11,0.12)]">
+              <div className="flex items-center justify-between mb-8 lg:mb-10">
+                <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-ink-400">
+                  Six-step framework
+                </span>
+                <span className="hidden sm:inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-ink-400">
+                  Engage
+                  <svg width="10" height="8" viewBox="0 0 16 12" fill="none" aria-hidden>
+                    <path d="M1 6h13M10 2l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Optimise
+                </span>
+              </div>
+              <div className="relative w-full aspect-[2000/511]">
+                <Image
+                  src="/case_studies/Methodology.webp"
+                  alt="Methodology: Engage, Reframe, Align, Build, Deliver, Optimise"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 92vw, 82rem"
+                />
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -540,7 +535,7 @@ function CaseBlock({ data: c, reverse }: { data: CaseStudy; reverse: boolean }) 
             {c.tag}
           </span>
         </div>
-        <h3 className="font-sans font-black text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em] text-ink-900 max-w-4xl">
+        <h3 className="font-sans font-black text-[1.75rem] sm:text-[2rem] lg:text-[2.625rem] xl:text-[2.875rem] leading-[1.1] tracking-[-0.02em] text-ink-900 max-w-4xl text-balance">
           {c.title}
         </h3>
         {c.client && (
@@ -567,7 +562,7 @@ function CaseBlock({ data: c, reverse }: { data: CaseStudy; reverse: boolean }) 
               sizes="(max-width: 1024px) 100vw, 55vw"
             />
           </div>
-          <div className="lg:col-span-5 relative rounded-3xl bg-ink-900 text-white p-8 lg:p-10 flex flex-col justify-between overflow-hidden">
+          <div className="lg:col-span-5 relative rounded-3xl bg-ink-900 text-white p-7 sm:p-9 lg:p-10 flex flex-col justify-between overflow-hidden">
             <div
               aria-hidden
               className="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-accent/20 blur-3xl pointer-events-none"
@@ -576,7 +571,7 @@ function CaseBlock({ data: c, reverse }: { data: CaseStudy; reverse: boolean }) 
               <div className="text-[11px] uppercase tracking-[0.22em] text-white/50 mb-4">
                 Headline impact
               </div>
-              <div className="font-sans font-black text-5xl sm:text-6xl lg:text-[4.5rem] leading-[1] tracking-[-0.03em] text-white">
+              <div className="font-sans font-black text-[2.5rem] sm:text-[3rem] lg:text-[3.25rem] xl:text-[3.75rem] leading-[1.02] tracking-[-0.03em] text-white break-words">
                 {c.headlineStat}
               </div>
               <p className="mt-5 text-sm text-ink-300 leading-relaxed max-w-xs">
