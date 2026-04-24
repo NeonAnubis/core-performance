@@ -2,19 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "./Reveal";
 
-const otherSystems = [
-  {
-    name: "Smart Safety & Performance Station",
-    body: "Depot and site interface with digital sign-in, live KPIs, biometrics, and embedded briefings.",
-    image: "/section4/4.webp",
-  },
-  {
-    name: "Environmental Risk & Sand Mitigation System",
-    body: "Wind and weather monitoring with early warning alerts, designed for desert infrastructure.",
-    image: "/section4/2.webp",
-  },
-];
-
 const modules = [
   { label: "Fatigue Management", phase: "Current" },
   { label: "Competency Management", phase: "Current" },
@@ -114,41 +101,6 @@ export default function CoreSystems() {
             </div>
           </div>
         </Reveal>
-
-        {/* Other systems grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {otherSystems.map((sys, i) => (
-            <Reveal
-              key={sys.name}
-              delay={((i + 1) as 1 | 2)}
-              className="group relative rounded-3xl overflow-hidden bg-ink-800 border border-white/10 aspect-[5/4]"
-            >
-              <Image
-                src={sys.image}
-                alt={sys.name}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 44vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/60 to-transparent" />
-              <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-end">
-                <h4 className="heading-display text-white text-2xl lg:text-3xl leading-tight mb-3">
-                  {sys.name}
-                </h4>
-                <p className="text-ink-200 text-sm leading-relaxed max-w-md">
-                  {sys.body}
-                </p>
-                <Link
-                  href="/products"
-                  className="mt-6 inline-flex items-center gap-2 text-sm text-white link-underline self-start"
-                >
-                  Learn more
-                  <span className="text-accent">→</span>
-                </Link>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );

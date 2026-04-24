@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,13 +7,6 @@ import Footer from "@/components/Footer";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const display = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-display",
   display: "swap",
 });
 
@@ -36,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="bg-white text-ink-900 font-sans antialiased">
         <Header />
         <main>{children}</main>

@@ -12,7 +12,10 @@ export default function FinalCTA() {
       <div className="container-core relative">
         <Reveal className="max-w-5xl">
           <span className="eyebrow mb-6 !text-white/60">Start the conversation</span>
-          <h2 className="heading-display text-white text-5xl sm:text-7xl lg:text-[7rem] xl:text-[8rem] leading-[1] text-balance">
+          <h2
+            className="font-sans font-extrabold text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl tracking-tight"
+            style={{ lineHeight: 1.7 }}
+          >
             Whether it's performance, audit-readiness, or new systems,{" "}
             <span className="italic text-accent">we can help.</span>
           </h2>

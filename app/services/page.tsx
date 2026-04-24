@@ -106,7 +106,7 @@ export default function ServicesPage() {
                 <a
                   id={s.id}
                   href={`#${s.id}`}
-                  className="block border-t border-ink-200 py-10 lg:py-14 grid lg:grid-cols-12 gap-8 hover:bg-ink-50 transition-colors -mx-6 sm:-mx-8 lg:-mx-12 px-6 sm:px-8 lg:px-12"
+                  className="block border-t border-ink-200 py-10 lg:py-14 grid lg:grid-cols-12 gap-8 hover:bg-ink-50 transition-colors -mx-6 sm:-mx-8 lg:-mx-10 px-6 sm:px-8 lg:px-10"
                 >
                   <div className="lg:col-span-2">
                     <span className="text-sm font-mono text-ink-400">{s.num}</span>

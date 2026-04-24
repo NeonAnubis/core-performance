@@ -26,7 +26,8 @@ body {
 
 @layer components {
   .container-core {
-    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+    @apply mx-auto w-full px-6 sm:px-8 lg:px-10;
+    max-width: 110rem; /* 1760px — leaves a slim margin on 1920px+ screens */
   }
 
   .eyebrow {
@@ -39,11 +40,9 @@ body {
   }
 
   .heading-display {
-    @apply font-display font-normal text-ink-900;
-    letter-spacing: 0.005em;
+    @apply font-sans font-black text-ink-900;
+    letter-spacing: -0.02em;
     font-feature-settings: "ss01", "cv11";
-    word-spacing: 0.02em;
-    font-synthesis: none;
   }
 
   .btn {

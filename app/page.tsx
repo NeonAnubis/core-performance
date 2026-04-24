@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import ProductShowcase from "@/components/ProductShowcase";
 import Services from "@/components/Services";
 import CoreOfferings from "@/components/CoreOfferings";
 import HowWeWork from "@/components/HowWeWork";
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <ProductShowcase />
       <Services />
       <CoreOfferings />
       <HowWeWork />
